@@ -1,0 +1,177 @@
+
+@baseUrl = http://localhost:3000/products
+
+### 1. Create Products
+# iPhone 15
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "iPhone 15",
+  "price": 999.99,
+  "stock": 50,
+  "category": "Electronics"
+}
+
+###
+# Samsung TV
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Samsung TV",
+  "price": 499.99,
+  "stock": 20,
+  "category": "Electronics"
+}
+
+###
+# Running Shoes
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Running Shoes",
+  "price": 89.99,
+  "stock": 100,
+  "category": "Sports"
+}
+
+###
+# Notebook
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Notebook",
+  "price": 4.99,
+  "stock": 200,
+  "category": "Stationery"
+}
+
+
+### 2. Read Operations
+# Get all products 
+GET {{baseUrl}}
+
+###
+# Get one product by ID 
+GET {{baseUrl}}/1
+
+###
+# Get one product (Non-existent ID) 
+GET {{baseUrl}}/999
+
+###
+# Get products by category GET 
+
+###
+# Search products by keyword 
+GET {{baseUrl}}/search?keyword=phone
+
+###
+# Search products by keyword 
+GET {{baseUrl}}/search?keyword=s
+
+
+### 3. Update & Toggle
+# Partial Update 
+PATCH {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "price": 899.99,
+  "stock": 45
+}
+
+###
+# Validation Error: Empty Name 
+PATCH {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": ""
+}
+
+###
+# Full Replace (PUT)
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "name": "iPhone 15 Pro",
+  "price": 1099.99,
+  "stock": 30,
+  "category": "Electronics"
+}
+
+###
+# Validation Error: Missing Fields 
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "price": 799.99
+}
+
+###
+# Toggle Active 
+PATCH {{baseUrl}}/1/toggle
+
+###
+# Toggle Active 
+PATCH {{baseUrl}}/1/toggle
+
+
+### 4. Delete
+# Delete Product 
+DELETE {{baseUrl}}/4
+
+###
+# Delete Product again 
+DELETE {{baseUrl}}/4
+
+###
+# Verify deletion 
+GET {{baseUrl}}
+
+
+### 5. Validation Errors (POST)
+# Missing name
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "price": 100,
+  "category": "Test"
+}
+
+###
+# price: -5 
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Negative Price",
+  "price": -5,
+  "category": "Test"
+}
+
+###
+# Extra unknown field 
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Extra Field",
+  "price": 100,
+  "category": "Test",
+  "unknownField": "bad"
+}
+
+###
+# Empty body 
+POST {{baseUrl}}
+Content-Type: application/json
+
+{}
