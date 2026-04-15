@@ -1,0 +1,10 @@
+# Upload Course Material
+POST http://localhost:3000/course/5/upload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="sample.pdf"
+Content-Type: application/pdf
+
+< ./sample.pdf
+--boundary--

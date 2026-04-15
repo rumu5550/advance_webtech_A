@@ -1,0 +1,10 @@
+# Update Full Course
+PUT http://localhost:3000/course/5
+Content-Type: application/json
+
+{
+  "name": "Updated Full Course",
+  "code": "CS101-U",
+  "instructor": "New Instructor",
+  "credits": 4
+}

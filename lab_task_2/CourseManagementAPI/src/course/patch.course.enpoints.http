@@ -1,0 +1,8 @@
+# Update Partial Course
+PATCH http://localhost:3000/course/5
+Content-Type: application/json
+
+{
+  "name": "Patched Name",
+  "credits": 2
+}

@@ -1,0 +1,48 @@
+# Create New Course (Valid)
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+  "name": "NestJS Advanced",
+  "code": "CS202",
+  "instructor": "Jane Doe",
+  "credits": 3,
+  "description": "Deep dive into NestJS"
+}
+
+###
+
+# Create New Course (Invalid - Missing Fields)
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+  "name": "Invalid Course"
+}
+
+###
+
+# Create New Course (Invalid - Wrong Credits)
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+  "name": "Too Many Credits",
+  "code": "CS999",
+  "instructor": "Lazy Prof",
+  "credits": 10
+}
+
+###
+
+# Create New Course (Invalid - Extra Fields)
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+  "name": "Extra Fields",
+  "code": "CS000",
+  "instructor": "Hacker",
+  "credits": 3,
+  "secretField": "Unauthorized"
+}

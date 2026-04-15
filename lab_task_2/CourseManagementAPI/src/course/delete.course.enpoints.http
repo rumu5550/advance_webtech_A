@@ -1,0 +1,2 @@
+#Delete Course
+DELETE http://localhost:3000/course/5
