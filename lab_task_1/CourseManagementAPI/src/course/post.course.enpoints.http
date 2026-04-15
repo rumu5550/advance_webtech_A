@@ -1,0 +1,3 @@
+#Create New Course
+POST http://localhost:3000/course
+

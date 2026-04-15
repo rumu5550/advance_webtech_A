@@ -1,0 +1,2 @@
+#Update Full Course
+PUT http://localhost:3000/course/5

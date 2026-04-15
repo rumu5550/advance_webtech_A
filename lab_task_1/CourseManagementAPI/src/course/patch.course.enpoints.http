@@ -1,0 +1,2 @@
+#Update Partial Course
+PATCH http://localhost:3000/course/5
