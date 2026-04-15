@@ -1,0 +1,19 @@
+
+# GET All Courses
+GET http://localhost:3000/course
+
+###
+
+# GET Course By ID
+GET http://localhost:3000/course/101
+
+###
+
+# POST Create Course 
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+  "name": "NestJS",
+  "code": "CS301"
+}
